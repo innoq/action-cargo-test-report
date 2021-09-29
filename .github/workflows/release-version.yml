@@ -1,0 +1,59 @@
+name: Tag a docker image release
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  push:
+    tags: [ '*.*.*' ]
+  workflow_dispatch: {}
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  retag_docker_image:
+    name: Create version tag for existing docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create version tag for existing docker image
+        run: |
+          git_sha=sha-$(git rev-parse --short HEAD)
+          git_tag=$(basename ${GITHUB_REF})
+
+          # wait for image to be available
+          max_tries=60 # max_tries times every 10 seconds
+          echo "waiting for docker image '${REGISTRY}/${IMAGE_NAME}:${git_sha}' to be available"
+          for _ in $(seq 1 120)
+          do
+            sleep 10
+            echo "."
+            docker pull ${REGISTRY}/${IMAGE_NAME}:${git_sha} &>/dev/null && break
+          done
+
+          echo " ✅"
+
+          echo "tagging and pushing docker image"
+          (set -ex;
+            docker tag  ${REGISTRY}/${IMAGE_NAME}:${git_sha} ${REGISTRY}/${IMAGE_NAME}:${git_tag}
+            docker push ${REGISTRY}/${IMAGE_NAME}:${git_tag}
+          )
