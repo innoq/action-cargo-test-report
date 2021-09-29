@@ -1,13 +1,14 @@
 #!/bin/sh
 
 : ${1:?}
+results_file=${GITHUB_WORKSPACE}/$1
 
 test -n "${GITHUB_WORKSPACE}" && cd ${GITHUB_WORKSPACE}
 
 mkdir -p junit-reports/
 (
 set -x
-cat "${1}"|cargo2junit > junit-reports/TEST-all.xml
+cat "${results_file}"|cargo2junit > junit-reports/TEST-all.xml
 )
-SUMMARY="$(markdown-summary.sh ${1})"
+SUMMARY="$(markdown-summary.sh ${results_file})"
 echo "::set-output name=summary::${SUMMARY}"
