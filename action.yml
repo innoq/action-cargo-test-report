@@ -1,0 +1,14 @@
+name: 'Cargo Test Reporter'
+description: 'Github action that parses cargo test json output and prepares it so that it can be used with the mikepenz/action-junit-report action'
+inputs:
+  cargo-test-report-json:  # id of input
+    description: 'File that contains the cargo test report in json format (call like "cargo test  -- -Z unstable-options --format json --report-time | tee results.json"'
+    required: true
+outputs:
+  summary: # id of output
+    description: 'A markdown summary of the test report'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cargo-test-report-json }}
