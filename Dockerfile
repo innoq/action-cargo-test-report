@@ -14,4 +14,4 @@ FROM scratch
 COPY --from=builder /tmp/rootfs/ /
 COPY markdown-summary.sh create-junit-report-and-summary.sh /usr/local/bin/
 
-ENTRYPOINT /usr/local/bin/create-junit-report-and-summary.sh
+ENTRYPOINT ["/usr/local/bin/create-junit-report-and-summary.sh"]
