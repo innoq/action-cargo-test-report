@@ -18,14 +18,14 @@ do
     else
         name="${title:0:77}..."
     fi
-    duration_title=$(echo "${line}"|jq -r ".exec_time" 2>/dev/null )
-    duration="$(printf "%.2f" ${duration_title} 2>/dev/null) seconds"
+    duration_title=$(echo "${line}"|jq -r ".exec_time" 2>/dev/null)
+    duration=$(printf "%.2f" ${duration_title} 2>/dev/null)
 
-    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "ok"              then ["|","<span title=\"OK\"             >✅</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}'\">'${duration}'s</tt>","|"]|add else empty end'
-    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "failed"          then ["|","<span title=\"FAILED\"         >❌</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}'\">'${duration}'s</tt>","|"]|add else empty end'
-    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "ignored"         then ["|","<span title=\"IGNORED\"        >🙈</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}'\">'${duration}'s</tt>","|"]|add else empty end'
-    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "timeout"         then ["|","<span title=\"TIMEOUT\"        >⌛️</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}'\">'${duration}'s</tt>","|"]|add else empty end'
-    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "allowed_failure" then ["|","<span title=\"ALLOWED_FAILURE\">🤷</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}'\">'${duration}'s</tt>","|"]|add else empty end'
+    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "ok"              then ["|","<span title=\"OK\"             >✅</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}' seconds\">'${duration}'s</tt>","|"]|add else empty end'
+    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "failed"          then ["|","<span title=\"FAILED\"         >❌</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}' seconds\">'${duration}'s</tt>","|"]|add else empty end'
+    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "ignored"         then ["|","<span title=\"IGNORED\"        >🙈</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}' seconds\">'${duration}'s</tt>","|"]|add else empty end'
+    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "timeout"         then ["|","<span title=\"TIMEOUT\"        >⌛️</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}' seconds\">'${duration}'s</tt>","|"]|add else empty end'
+    echo "${line}"|jq -r 'if .event != "started" and .type != "suite" and .event == "allowed_failure" then ["|","<span title=\"ALLOWED_FAILURE\">🤷</span>|", "<span title=\"'${title}'\">'${name}'</span>","|","<tt title=\"'${duration_title}' seconds\">'${duration}'s</tt>","|"]|add else empty end'
 done < ${cargo_test_results_file} >> results.md
 
 export SUMMARY="$(cat results.md)"
