@@ -9,6 +9,6 @@ outputs:
     description: 'A markdown summary of the test report'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/innoq/action-cargo-test-report:main'
   args:
     - ${{ inputs.cargo-test-report-json }}
