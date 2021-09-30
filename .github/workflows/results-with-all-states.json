@@ -1,12 +1,6 @@
 { "type": "suite", "event": "started", "test_count": 5 }
 { "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing" }
-{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing", "event": "ok", "exec_Time": 5.993672835 }
-{ "type": "test", "event": "started", "name": "project::project::it_is_possible_to_update_project" }
-{ "type": "test", "name": "project::project::it_is_possible_to_update_project", "event": "ignored" }
-{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_be_possible_to_update_projects" }
-{ "type": "test", "name": "project::admission_webhook_tests::it_should_be_possible_to_update_projects", "event": "allowed_failure", "exec_time": 7.450593008, "stdout": "thread 'project::admission_webhook_tests::it_should_be_possible_to_update_projects' panicked at 'boom', tests/project/admission_webhook_tests.rs:48:38\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing", "event": "ok", "exec_time": 5.993672835 }
 { "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_skip_annotated_manifests" }
 { "type": "test", "name": "project::manifest_secrets::it_should_skip_annotated_manifests", "event": "failed", "exec_time": 11.907006213, "stdout": "thread 'project::manifest_secrets::it_should_skip_annotated_manifests' panicked at 'assertion failed: `(left == right)`\n  left: `0`,\n right: `42`: all manifests should be skipped', tests/project/manifest_secrets.rs:305:5\n" }
-{ "type": "test", "event": "started", "name": "project::states::create_namespace::it_creates_and_deletes_namespace" }
-{ "type": "test", "event": "timeout", "name": "project::states::create_namespace::it_creates_and_deletes_namespace" }
 { "type": "suite", "event": "failed", "passed": 1, "failed": 1, "allowed_fail": 1, "ignored": 1, "measured": 0, "filtered_out": 0, "exec_time": 288.027298281 }
