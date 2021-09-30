@@ -1,15 +1,8 @@
-name: foo
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Example pipeline with test report demo
 
 on:
   push:
     branches: [ '*' ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch: {}
 
 env:
@@ -17,9 +10,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  OS: linux
-  ARCH: amd64
-  HELM_VERSION: 3.6.3
 
 
 jobs:
