@@ -2,10 +2,11 @@ FROM rust:buster as builder
 RUN apt update 
 RUN apt install -y jq binutils busybox
 
-RUN cargo install --root /usr cargo2junit
+RUN rustup install nightly
+RUN rustup run nightly  cargo install  --root /usr junitify
 
 COPY create-rootfs.sh /usr/local/bin
-RUN create-rootfs.sh /usr/bin/jq /bin/busybox /usr/bin/cargo2junit
+RUN create-rootfs.sh /usr/bin/jq /bin/busybox /usr/bin/junitify
 
 # install busybox aliases so we have a usable system
 RUN cd /tmp/rootfs/bin && ./busybox --install .
