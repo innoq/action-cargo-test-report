@@ -1,6 +1,57 @@
-{ "type": "suite", "event": "started", "test_count": 5 }
+{ "type": "suite", "event": "started", "test_count": 0 }
+{ "type": "suite", "event": "ok", "passed": 0, "failed": 0, "allowed_fail": 0, "ignored": 0, "measured": 0, "filtered_out": 0, "exec_time": 0.000029148 }
+{ "type": "suite", "event": "started", "test_count": 0 }
+{ "type": "suite", "event": "ok", "passed": 0, "failed": 0, "allowed_fail": 0, "ignored": 0, "measured": 0, "filtered_out": 0, "exec_time": 0.000026061 }
+{ "type": "suite", "event": "started", "test_count": 23 }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_be_possible_to_update_projects" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_an_array" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_just_a_simple_string" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_not_a_yaml_string" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_namespace_already_exists_but_was_not_created_by_this_operator" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_secret_does_not_contain_addressed_data_item" }
+{ "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_secret_with_resource_manifests_is_not_available" }
 { "type": "test", "event": "started", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing" }
-{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing", "event": "ok", "exec_time": 5.993672835 }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_just_a_simple_string", "event": "ok", "exec_time": 1.390908487 }
+{ "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_correctly_copy_and_template_default_manifests" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_an_array", "event": "ok", "exec_time": 2.132119267 }
+{ "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_correctly_copy_annotated_manifests" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_secret_does_not_contain_addressed_data_item", "event": "ok", "exec_time": 2.760456065 }
+{ "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_correctly_copy_default_manifests" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_secret_with_resource_manifests_is_not_available", "event": "ok", "exec_time": 3.393327346 }
+{ "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_only_copy_from_annotated_secrets" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_manifest_values_is_not_a_yaml_string", "event": "ok", "exec_time": 4.268310665 }
 { "type": "test", "event": "started", "name": "project::manifest_secrets::it_should_skip_annotated_manifests" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_namespace_already_exists_but_was_not_created_by_this_operator", "event": "ok", "exec_time": 4.970591318 }
+{ "type": "test", "event": "started", "name": "project::operator::it_fails_with_non_existant_default_manifests_secret" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_fail_if_template_vals_are_missing", "event": "ok", "exec_time": 5.993672835 }
+{ "type": "test", "event": "started", "name": "project::project::it_is_possible_to_update_project" }
+{ "type": "test", "name": "project::project::it_is_possible_to_update_project", "event": "ignored" }
+{ "type": "test", "event": "started", "name": "project::states::apply_manifests::it_should_eventually_install_correctly_rendered_manifests" }
+{ "type": "test", "name": "project::admission_webhook_tests::it_should_be_possible_to_update_projects", "event": "allowed_failure", "exec_time": 7.450593008, "stdout": "thread 'project::admission_webhook_tests::it_should_be_possible_to_update_projects' panicked at 'boom', tests/project/admission_webhook_tests.rs:48:38\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n" }
+{ "type": "test", "event": "started", "name": "project::states::apply_manifests_check_provided_default_manifests::it_creates_rolebinding" }
+{ "type": "test", "name": "project::manifest_secrets::it_should_correctly_copy_and_template_default_manifests", "event": "ok", "exec_time": 8.056417346 }
+{ "type": "test", "event": "started", "name": "project::states::apply_manifests_check_provided_default_manifests::it_should_create_clusterrole_and_clusterrolebinding_for_handling_this_project" }
+{ "type": "test", "name": "project::manifest_secrets::it_should_correctly_copy_annotated_manifests", "event": "ok", "exec_time": 9.395688379 }
+{ "type": "test", "event": "started", "name": "project::states::create_namespace::it_creates_and_deletes_namespace" }
+{ "type": "test", "name": "project::manifest_secrets::it_should_correctly_copy_default_manifests", "event": "ok", "exec_time": 10.636255627 }
+{ "type": "test", "event": "started", "name": "project::states::error::it_fails_with_correct_error_state_when_invalid_manifests_are_used" }
+{ "type": "test", "name": "project::manifest_secrets::it_should_only_copy_from_annotated_secrets", "event": "ok", "exec_time": 12.018441098 }
+{ "type": "test", "event": "started", "name": "project::yaml_manifest_parsing::it_construct_a_correct_api_path_for_yaml_manifest" }
 { "type": "test", "name": "project::manifest_secrets::it_should_skip_annotated_manifests", "event": "failed", "exec_time": 11.907006213, "stdout": "thread 'project::manifest_secrets::it_should_skip_annotated_manifests' panicked at 'assertion failed: `(left == right)`\n  left: `0`,\n right: `42`: all manifests should be skipped', tests/project/manifest_secrets.rs:305:5\n" }
-{ "type": "suite", "event": "failed", "passed": 1, "failed": 1, "allowed_fail": 1, "ignored": 1, "measured": 0, "filtered_out": 0, "exec_time": 288.027298281 }
+{ "type": "test", "event": "started", "name": "project::yaml_manifest_parsing::it_rejects_manifests_with_an_unset_namespace" }
+{ "type": "test", "name": "project::operator::it_fails_with_non_existant_default_manifests_secret", "event": "ok", "exec_time": 11.290830592 }
+{ "type": "test", "event": "started", "name": "project::yaml_manifest_parsing::it_should_correctly_create_yaml_manifest_resources" }
+{ "type": "test", "name": "project::states::apply_manifests::it_should_eventually_install_correctly_rendered_manifests", "event": "ok", "exec_time": 12.380226946 }
+{ "type": "test", "name": "project::states::apply_manifests_check_provided_default_manifests::it_creates_rolebinding", "event": "ok", "exec_time": 12.808760505 }
+{ "type": "test", "name": "project::states::apply_manifests_check_provided_default_manifests::it_should_create_clusterrole_and_clusterrolebinding_for_handling_this_project", "event": "ok", "exec_time": 12.694890663 }
+{ "type": "test", "event": "timeout", "name": "project::states::create_namespace::it_creates_and_deletes_namespace" }
+{ "type": "test", "event": "timeout", "name": "project::states::error::it_fails_with_correct_error_state_when_invalid_manifests_are_used" }
+{ "type": "test", "event": "timeout", "name": "project::yaml_manifest_parsing::it_construct_a_correct_api_path_for_yaml_manifest" }
+{ "type": "test", "event": "timeout", "name": "project::yaml_manifest_parsing::it_rejects_manifests_with_an_unset_namespace" }
+{ "type": "test", "event": "timeout", "name": "project::yaml_manifest_parsing::it_should_correctly_create_yaml_manifest_resources" }
+{ "type": "test", "name": "project::states::create_namespace::it_creates_and_deletes_namespace", "event": "ok", "exec_time": 262.317059001 }
+{ "type": "test", "name": "project::states::error::it_fails_with_correct_error_state_when_invalid_manifests_are_used", "event": "ok", "exec_time": 272.421229216 }
+{ "type": "test", "name": "project::yaml_manifest_parsing::it_construct_a_correct_api_path_for_yaml_manifest", "event": "ok", "exec_time": 271.128798217 }
+{ "type": "test", "name": "project::yaml_manifest_parsing::it_rejects_manifests_with_an_unset_namespace", "event": "ok", "exec_time": 271.007282243 }
+{ "type": "test", "name": "project::yaml_manifest_parsing::it_should_correctly_create_yaml_manifest_resources", "event": "ok", "exec_time": 271.764933911 }
+{ "type": "suite", "event": "failed", "passed": 20, "failed": 2, "allowed_fail": 1, "ignored": 1, "measured": 0, "filtered_out": 0, "exec_time": 288.027298281 }
