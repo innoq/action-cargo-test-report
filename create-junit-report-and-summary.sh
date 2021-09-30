@@ -9,7 +9,8 @@ mkdir -p junit-reports/
 (
 set -ex -o pipefail
 cat "${results_file}"|junitify --out junit-reports
-# cd junit-reports/ && ls *.xml|xargs -I% -n1 mv % TEST-%
+cd junit-reports/ && ls *.xml|xargs -I% -n1 mv % TEST-%
+find .
 )
 
 
