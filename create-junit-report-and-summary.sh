@@ -14,4 +14,4 @@ cd junit-reports/ && ls *.xml|xargs -I% -n1 mv % TEST-%
 
 
 SUMMARY="$(markdown-summary.sh ${results_file})"
-echo "::set-output name=summary::${SUMMARY}"
+echo "::set-output name=summary::${XXSUMMARY}"
