@@ -45,5 +45,5 @@ done
 mkdir -p /tmp/rootfs
 while read file
 do
-  (set -x; install -Ds $file /tmp/rootfs/${file})
+  (set -x; install -Ds $file /tmp/rootfs${file})
 done < <(cat /tmp/deps)

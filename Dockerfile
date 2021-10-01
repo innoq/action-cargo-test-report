@@ -2,11 +2,15 @@ FROM rust:buster as builder
 RUN apt update 
 RUN apt install -y jq binutils busybox
 
-RUN rustup install nightly
-RUN rustup run nightly  cargo install  --root /usr junitify
+WORKDIR /src
+RUN git clone https://github.com/kingli-crypto/cargo2junit.git /src
+RUN git checkout origin/feature/handle-ignore
+RUN cargo install --target-dir /usr/local --path .
+RUN cargo install --root /usr --path .
 
+RUN ls -lah /usr/bin/cargo2junit
 COPY create-rootfs.sh /usr/local/bin
-RUN create-rootfs.sh /usr/bin/jq /bin/busybox /usr/bin/junitify
+RUN create-rootfs.sh /usr/bin/jq /bin/busybox /usr/bin/cargo2junit
 
 # install busybox aliases so we have a usable system
 RUN cd /tmp/rootfs/bin && ./busybox --install .
