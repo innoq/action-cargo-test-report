@@ -32,7 +32,7 @@ jobs:
         cargo-test-report-json: '.github/workflows/results-with-all-states.json'
 
     - name: Publish Test Report
-      uses:  innoq/action-junit-report@main
+      uses:  innoq/action-junit-report@rust3
       if: always() # always run even if the previous step fails
       with:
         check_name: Test Report
