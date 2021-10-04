@@ -1,5 +1,9 @@
 # action-cargo-test-report
-Github action that parses cargo test json output and prepares it so that it can be used with the mikepenz/action-junit-report action
+Github action that creates a summary table and converts the cargo json output so it can be used with the mikepenz/action-junit-report action
+
+**Sample report**
+
+[![sample report](./sample-report.png)](https://github.com/innoq/self-service-operators/runs/3792856511?check_suite_focus=true)
 
 ## Inputs
 
@@ -42,4 +46,4 @@ steps:
       fail_on_failure: true
       require_tests: true
       summary: ${{ steps.cargo_reporter.outputs.summary }}
-```      
+```
