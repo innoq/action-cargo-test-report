@@ -1,5 +1,6 @@
+# Copyright
 FROM rust:buster as builder
-RUN apt update 
+RUN apt update
 RUN apt install -y jq binutils busybox
 
 WORKDIR /src
