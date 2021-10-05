@@ -1,5 +1,5 @@
 # action-cargo-test-report
-Github action that creates a summary table and converts the cargo json output so it can be used with the mikepenz/action-junit-report action
+Github action that creates a summary table and converts the cargo json output so it can be used with the [mikepenz/action-junit-report action](https://github.com/mikepenz/action-junit-report)
 
 **Sample report**
 
@@ -27,7 +27,7 @@ A markdown summary of the test report
 steps:
   # ...
   - name: Run tests
-    # note: we don't handle errors here as the 'mikepenz/action-junit-report@v2' below will fail if there
+    # note: we don't handle errors here as the 'mikepenz/action-junit-report' below will fail if there
     #       was an error
     run: |
       cargo test  -- -Z unstable-options --format json --report-time | tee results.json
