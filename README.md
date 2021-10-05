@@ -39,7 +39,7 @@ steps:
       cargo-test-report-json: 'results.json'
 
   - name: Publish Test Report
-    uses: mikepenz/action-junit-report@v2
+    uses: mikepenz/action-junit-report@main
     if: always() # always run even if the previous step fails
     with:
       check_name: Test Report
