@@ -1,13 +1,28 @@
 # action-cargo-test-report
+
+<!-- toc -->
+
+- [Description](#description)
+  * [Sample report](#sample-report)
+- [Inputs](#inputs)
+  * [`cargo-test-report-json`](#cargo-test-report-json)
+- [Outputs](#outputs)
+  * [`summary`](#summary)
+- [Example usage](#example-usage)
+
+<!-- tocstop -->
+
+## Description
+
 Github action that creates a summary table and converts the cargo json output so it can be used with the [mikepenz/action-junit-report action](https://github.com/mikepenz/action-junit-report)
 
-**Sample report**
+### Sample report
 
 [![sample report](./sample-report.png)](https://github.com/innoq/self-service-operators/runs/3792856511?check_suite_focus=true)
 
 ## Inputs
 
-## `cargo-test-report-json`
+### `cargo-test-report-json`
 
 **Required** Name of the cargo test result file in json format. In order to output the cargo test results as json, call cargo like this:
 
@@ -17,7 +32,7 @@ with this, the results would be available in `results.json`
 
 ## Outputs
 
-## `summary`
+### `summary`
 
 A markdown summary of the test report
 
